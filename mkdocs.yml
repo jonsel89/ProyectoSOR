@@ -1,0 +1,9 @@
+site_name: Proyecto Samba
+theme:
+  name: material  # Usa el tema Material para MkDocs
+  features:
+    - content.code.copy
+nav:
+  - Preparando entorno: index.md
+  - Instalar y configurar samba: instalar.md
+  - Acerca de: about.md

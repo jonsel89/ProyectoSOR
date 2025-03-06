@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jonsel89.github.io/instalar/">
+        <link rel="canonical" href="https://jonsel89.github.io/provision/">
       
       
-        <link rel="prev" href="../vagrant_up/">
+        <link rel="prev" href="../vagrantfile/">
       
+      
+        <link rel="next" href="../ubuntu/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Script - Proyecto Samba</title>
+        <title>provisión.sh - Proyecto Samba</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#script-de-instalacion-de-samba" class="md-skip">
+        <a href="#script-de-provision-del-servidor" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Script
+              provisión.sh
             
           </span>
         </div>
@@ -188,17 +190,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -213,7 +217,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Preparando entorno
@@ -268,10 +272,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../provision/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -281,6 +294,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -363,19 +377,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -390,7 +402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Instalar y configurar samba
@@ -401,19 +413,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../instalar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -423,7 +426,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -491,63 +493,69 @@
 
 
 
-<h1 id="script-de-instalacion-de-samba">Script de instalación de samba</h1>
-<p>Para instalar y configutar el dominio de samba-ad-dc utilizaremos el siguente script:</p>
+<h1 id="script-de-provision-del-servidor">Script de provisión del servidor</h1>
 <pre><code>#!/bin/bash
 
-# Instalar paquetes necesarios y configurar kerberos
-sudo apt-get update -y
-sudo apt-get install -y acl attr samba samba-dsdb-modules samba-vfs-modules smbclient winbind libpam-winbind libnss-winbind libpam-krb5 krb5-config krb5-user chrony net-tools
+# Variables de configuración
+NOMBRE_HOST=&quot;jonathan&quot;
+FQDN=&quot;${NOMBRE_HOST}.general.com&quot;
+NUEVA_IP=&quot;192.168.100.10&quot; # Cambiar según la IP asignada
+SAMBA_IP=&quot;192.168.100.10&quot; # Cambiar según la IP del servidor Samba
+FALLBACK_DNS=&quot;9.9.9.9&quot;
+DOMINIO_SEARCH=&quot;general.com&quot;
 
-# stop and disable samba services - smbd, nmbd, and winbind
-sudo systemctl disable --now smbd nmbd winbind
+# Cambiar el nombre del host
+echo &quot;Cambiando el nombre del host a ${NOMBRE_HOST}...&quot;
+sudo hostnamectl set-hostname &quot;${NOMBRE_HOST}&quot;
 
-# Activar el servicio samba-ad-dc
-systemctl unmask samba-ad-dc
-systemctl enable samba-ad-dc
+# Realizar una copia de seguridad del archivo /etc/hosts
+echo &quot;Creando una copia de seguridad de /etc/hosts...&quot;
+sudo cp /etc/hosts /etc/hosts.bak
 
-# Backup del archivo smb.conf
-sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.copia
+# Modificar el archivo /etc/hosts
+echo &quot;Modificando /etc/hosts para incluir el nuevo FQDN y dirección IP...&quot;
+sudo bash -c &quot;cat &lt;&lt;EOL &gt; /etc/hosts
+127.0.0.1 localhost
+${NUEVA_IP} ${FQDN} ${NOMBRE_HOST}
 
-# Configurar control de dominio
-samba-tool domain provision --use-rfc2307 --interactive
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+EOL&quot;
 
-# Renombra la configuración por defecto de Kerberos a krb5.conf.original
-sudo mv /etc/krb5.conf /etc/krb5.conf.original
 
-# Copia la configuración generada samba-tool
-sudo cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
+# Desactivar y detener el servicio de resolución de DNS
+echo &quot;Desactivando y deteniendo el servicio systemd-resolved...&quot;
+sudo systemctl disable --now systemd-resolved
 
-# start samba-ad-dc service
-sudo systemctl start samba-ad-dc
+# Eliminar el enlace simbólico de /etc/resolv.conf
+echo &quot;Eliminando el enlace simbólico /etc/resolv.conf...&quot;
+sudo unlink /etc/resolv.conf
 
-# Permite al grupo _chrony leer en el directorio ntp_signd
-sudo chown root:_chrony /var/lib/samba/ntp_signd/
+# Crear un nuevo archivo /etc/resolv.conf
+echo &quot;Creando un nuevo archivo /etc/resolv.conf...&quot;
+sudo bash -c &quot;cat &lt;&lt;EOL &gt; /etc/resolv.conf
+# Samba server IP address
+nameserver ${SAMBA_IP}
 
-# Cambia los permisos en el directorio ntp_signd.
-sudo chmod 750 /var/lib/samba/ntp_signd/
+# Fallback resolver Quad9
+nameserver ${FALLBACK_DNS}
 
-# Archivo de configuración
-CHRONY_CONF=&quot;/etc/chrony/chrony.conf&quot;
+# Dominio principal de Samba
+search ${DOMINIO_SEARCH}
+EOL&quot;
 
-echo &quot;Configurando Chrony en $CHRONY_CONF...&quot;
+# Hacer inmutable el archivo /etc/resolv.conf
+echo &quot;Haciendo el archivo /etc/resolv.conf inmutable...&quot;
+sudo chattr +i /etc/resolv.conf
 
-# Crear una copia de seguridad si no existe
-cp -n &quot;$CHRONY_CONF&quot; &quot;${CHRONY_CONF}.bakup&quot;
 
-# Añadir configuraciones al final del archivo
-cat &lt;&lt;EOL &gt;&gt; &quot;$CHRONY_CONF&quot;
+echo &quot;Script completado. Revisa los cambios si es necesario.&quot;
 
-# Configuración para Samba AD
-bindcmdaddress 192.168.100.10
-allow 192.168.100.0/24
-ntpsigndsocket /var/lib/samba/ntp_signd
-EOL
 
-# Reiniciar el servicio Chrony
-systemctl restart chronyd
-
-echo &quot;Configuración de Chrony completada y servicio reiniciado.&quot;
 </code></pre>
 
 

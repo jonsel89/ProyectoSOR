@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jonsel89.github.io/instalar/">
+        <link rel="canonical" href="https://jonsel89.github.io/vagrantfile/">
       
       
-        <link rel="prev" href="../vagrant_up/">
+        <link rel="prev" href="../vagrant/">
       
+      
+        <link rel="next" href="../provision/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Script - Proyecto Samba</title>
+        <title>Vagrantfile - Proyecto Samba</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#script-de-instalacion-de-samba" class="md-skip">
+        <a href="#vagrantfile" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Script
+              Vagrantfile
             
           </span>
         </div>
@@ -188,17 +190,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -213,7 +217,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Preparando entorno
@@ -246,10 +250,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../vagrantfile/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -259,6 +272,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -363,19 +377,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -390,7 +402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Instalar y configurar samba
@@ -401,19 +413,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../instalar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -423,7 +426,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -491,63 +493,77 @@
 
 
 
-<h1 id="script-de-instalacion-de-samba">Script de instalación de samba</h1>
-<p>Para instalar y configutar el dominio de samba-ad-dc utilizaremos el siguente script:</p>
-<pre><code>#!/bin/bash
+<h1 id="vagrantfile">VagrantFile</h1>
+<p>Para la automatización de las MV utilizaremos la siguiente configuración en el vagrant file:</p>
+<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
+  # Máquina 1: Ubuntu Server
+  config.vm.define &quot;server-ubuntu&quot; do |server|
+    server.vm.box = &quot;ubuntu/jammy64&quot;
 
-# Instalar paquetes necesarios y configurar kerberos
-sudo apt-get update -y
-sudo apt-get install -y acl attr samba samba-dsdb-modules samba-vfs-modules smbclient winbind libpam-winbind libnss-winbind libpam-krb5 krb5-config krb5-user chrony net-tools
+    # Configuración de red: Red interna con IP estática
+    server.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.10&quot;
 
-# stop and disable samba services - smbd, nmbd, and winbind
-sudo systemctl disable --now smbd nmbd winbind
+    # Configuración del proveedor VirtualBox
+    server.vm.provider &quot;virtualbox&quot; do |vb|
+      vb.memory = &quot;2048&quot; # 2 GB de RAM
+      vb.cpus = 2        # 2 CPUs
+    end
 
-# Activar el servicio samba-ad-dc
-systemctl unmask samba-ad-dc
-systemctl enable samba-ad-dc
+    # Provisión con un script de shell
+    server.vm.provision &quot;shell&quot;, path: &quot;provision.sh&quot;
+  end
 
-# Backup del archivo smb.conf
-sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.copia
+  # Máquina 2: Ubuntu Desktop
+  config.vm.define &quot;ubuntu_desktop&quot; do |desktop|
+    desktop.vm.box = &quot;ubuntu24.04-desktop&quot;
 
-# Configurar control de dominio
-samba-tool domain provision --use-rfc2307 --interactive
+    # Configuración de red: Red interna con IP estática
+    desktop.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.15&quot;
 
-# Renombra la configuración por defecto de Kerberos a krb5.conf.original
-sudo mv /etc/krb5.conf /etc/krb5.conf.original
+    # Configuración del proveedor VirtualBox
+    desktop.vm.provider &quot;virtualbox&quot; do |vb|
+      vb.memory = &quot;4096&quot; # 4 GB de RAM
+      vb.cpus = 2        # 2 CPUs
+    end
 
-# Copia la configuración generada samba-tool
-sudo cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
+        # Provisión con un script de shell
+    desktop.vm.provision &quot;shell&quot;, path: &quot;ubuntu-Desk.sh&quot;
+  end
 
-# start samba-ad-dc service
-sudo systemctl start samba-ad-dc
+  # Máquina 3: Fedora Workstation
+  config.vm.define &quot;fedora_workstation&quot; do |fedora|
+    fedora.vm.box = &quot;fedora41-fedora&quot;
 
-# Permite al grupo _chrony leer en el directorio ntp_signd
-sudo chown root:_chrony /var/lib/samba/ntp_signd/
+    # Provisión con script
+    fedora.vm.provision &quot;shell&quot;, path: &quot;fedora.sh&quot;
 
-# Cambia los permisos en el directorio ntp_signd.
-sudo chmod 750 /var/lib/samba/ntp_signd/
 
-# Archivo de configuración
-CHRONY_CONF=&quot;/etc/chrony/chrony.conf&quot;
+    # Configuración de red: Red interna con IP estática
+    fedora.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.25&quot;
 
-echo &quot;Configurando Chrony en $CHRONY_CONF...&quot;
+    # Configuración del proveedor VirtualBox
+    fedora.vm.provider &quot;virtualbox&quot; do |vb|
+      vb.memory = &quot;3072&quot; # 3 GB de RAM
+      vb.cpus = 2        # 2 CPUs
+    end
+  end
 
-# Crear una copia de seguridad si no existe
-cp -n &quot;$CHRONY_CONF&quot; &quot;${CHRONY_CONF}.bakup&quot;
+  # Máquina 4: Windows 11
+  config.vm.define &quot;windows10&quot; do |win|
+    win.vm.box = &quot;StefanScherer/windows_10&quot; # Box de Windows 10
+    win.vm.box_version = &quot;2021.12.09&quot;
 
-# Añadir configuraciones al final del archivo
-cat &lt;&lt;EOL &gt;&gt; &quot;$CHRONY_CONF&quot;
+    # Configuración de red: Red interna con IP estática
+    win.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.20&quot;
 
-# Configuración para Samba AD
-bindcmdaddress 192.168.100.10
-allow 192.168.100.0/24
-ntpsigndsocket /var/lib/samba/ntp_signd
-EOL
+    # Configuración del proveedor VirtualBox
+    win.vm.provider &quot;virtualbox&quot; do |vb|
+      vb.memory = &quot;4096&quot; # 4 GB de RAM
+      vb.cpus = 2        # 2 CPUs
+    end
+  end
+end
 
-# Reiniciar el servicio Chrony
-systemctl restart chronyd
-
-echo &quot;Configuración de Chrony completada y servicio reiniciado.&quot;
 </code></pre>
 
 

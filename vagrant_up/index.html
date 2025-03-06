@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jonsel89.github.io/instalar/">
+        <link rel="canonical" href="https://jonsel89.github.io/vagrant_up/">
       
       
-        <link rel="prev" href="../vagrant_up/">
+        <link rel="prev" href="../fedora/">
       
+      
+        <link rel="next" href="../instalar/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Script - Proyecto Samba</title>
+        <title>Vagrant up - Proyecto Samba</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#script-de-instalacion-de-samba" class="md-skip">
+        <a href="#levantar-mv" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Script
+              Vagrant up
             
           </span>
         </div>
@@ -188,17 +190,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -213,7 +217,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Preparando entorno
@@ -334,10 +338,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../vagrant_up/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vagrant up
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -347,6 +372,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#una-vez-configurado-los-scripts-de-provision-y-el-vagrantfile-ejecutamos-el-siguiente-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Una vez configurado los scripts de provisión y el vagrantfile ejecutamos el siguiente comando
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -363,19 +417,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -390,7 +442,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Instalar y configurar samba
@@ -401,19 +453,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../instalar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -423,7 +466,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -477,6 +519,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#una-vez-configurado-los-scripts-de-provision-y-el-vagrantfile-ejecutamos-el-siguiente-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Una vez configurado los scripts de provisión y el vagrantfile ejecutamos el siguiente comando
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -491,64 +550,14 @@
 
 
 
-<h1 id="script-de-instalacion-de-samba">Script de instalación de samba</h1>
-<p>Para instalar y configutar el dominio de samba-ad-dc utilizaremos el siguente script:</p>
-<pre><code>#!/bin/bash
-
-# Instalar paquetes necesarios y configurar kerberos
-sudo apt-get update -y
-sudo apt-get install -y acl attr samba samba-dsdb-modules samba-vfs-modules smbclient winbind libpam-winbind libnss-winbind libpam-krb5 krb5-config krb5-user chrony net-tools
-
-# stop and disable samba services - smbd, nmbd, and winbind
-sudo systemctl disable --now smbd nmbd winbind
-
-# Activar el servicio samba-ad-dc
-systemctl unmask samba-ad-dc
-systemctl enable samba-ad-dc
-
-# Backup del archivo smb.conf
-sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.copia
-
-# Configurar control de dominio
-samba-tool domain provision --use-rfc2307 --interactive
-
-# Renombra la configuración por defecto de Kerberos a krb5.conf.original
-sudo mv /etc/krb5.conf /etc/krb5.conf.original
-
-# Copia la configuración generada samba-tool
-sudo cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
-
-# start samba-ad-dc service
-sudo systemctl start samba-ad-dc
-
-# Permite al grupo _chrony leer en el directorio ntp_signd
-sudo chown root:_chrony /var/lib/samba/ntp_signd/
-
-# Cambia los permisos en el directorio ntp_signd.
-sudo chmod 750 /var/lib/samba/ntp_signd/
-
-# Archivo de configuración
-CHRONY_CONF=&quot;/etc/chrony/chrony.conf&quot;
-
-echo &quot;Configurando Chrony en $CHRONY_CONF...&quot;
-
-# Crear una copia de seguridad si no existe
-cp -n &quot;$CHRONY_CONF&quot; &quot;${CHRONY_CONF}.bakup&quot;
-
-# Añadir configuraciones al final del archivo
-cat &lt;&lt;EOL &gt;&gt; &quot;$CHRONY_CONF&quot;
-
-# Configuración para Samba AD
-bindcmdaddress 192.168.100.10
-allow 192.168.100.0/24
-ntpsigndsocket /var/lib/samba/ntp_signd
-EOL
-
-# Reiniciar el servicio Chrony
-systemctl restart chronyd
-
-echo &quot;Configuración de Chrony completada y servicio reiniciado.&quot;
+<h1 id="levantar-mv">Levantar MV</h1>
+<h2 id="una-vez-configurado-los-scripts-de-provision-y-el-vagrantfile-ejecutamos-el-siguiente-comando">Una vez configurado los scripts de provisión y el vagrantfile ejecutamos el siguiente comando</h2>
+<pre><code>vagrant up
 </code></pre>
+<p><img alt="Imagen levantando máquinas 1" src="../img/9.%20levantar%20server.png" />
+<img alt="Imagen levantando máquinas 2" src="../img/10.%20levantar%20ubuntu%20desk.png" />
+<img alt="Imagen levantando máquinas 3" src="../img/11-%20levantar%20fedora.png" />
+<img alt="Imagen levantando máquinas 4" src="../img/12.%20Levantar%20fedora.png" /></p>
 
 
 

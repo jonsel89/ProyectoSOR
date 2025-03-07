@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jonsel89.github.io/vagrantfile/">
+        <link rel="canonical" href="https://jonsel89.github.io/ejecucion/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../instalar/">
       
       
-        <link rel="next" href="../provision/">
+        <link rel="next" href="../password/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Vagrantfile - Proyecto Samba</title>
+        <title>Ejecución Script - Proyecto Samba</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vagrantfile" class="md-skip">
+        <a href="#vista-cuando-ejecutamos-el-script" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vagrantfile
+              Ejecución Script
             
           </span>
         </div>
@@ -190,19 +190,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -217,7 +215,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Preparando entorno
@@ -250,19 +248,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../vagrantfile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +261,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -377,17 +365,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -402,7 +392,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Instalar y configurar samba
@@ -435,10 +425,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ejecucion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ejecución Script
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -448,6 +459,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#para-comprobar-el-dominio-ejecutaremos-lo-siguiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para comprobar el dominio ejecutaremos lo siguiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-kerberos-y-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobar Kerberos y LDAP
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -611,6 +660,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#para-comprobar-el-dominio-ejecutaremos-lo-siguiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para comprobar el dominio ejecutaremos lo siguiente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-kerberos-y-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprobar Kerberos y LDAP
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -625,78 +700,27 @@
 
 
 
-<h1 id="vagrantfile">VagrantFile</h1>
-<p>Para la automatización de las MV utilizaremos la siguiente configuración en el vagrant file:</p>
-<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
-  # Máquina 1: Ubuntu Server
-  config.vm.define &quot;server-ubuntu&quot; do |server|
-    server.vm.box = &quot;ubuntu/jammy64&quot;
+<h1 id="vista-cuando-ejecutamos-el-script">Vista cuando ejecutamos el script</h1>
+<p><img alt="ejecutando script" src="../img/13.%20ejecucion%20script%20samba.png" />
+<img alt="ejecutando script 2" src="../img/14.%20lila1.png" />
+<img alt="ejecutando script 3" src="../img/15.%20lila2.png" />
+<img alt="ejecucion script 4" src="../img/16.%20lila3.png" />
+<img alt="ejecucion script 5" src="../img/17.%20sincronizando%20samba.png" /></p>
+<h2 id="para-comprobar-el-dominio-ejecutaremos-lo-siguiente">Para comprobar el dominio ejecutaremos lo siguiente</h2>
+<pre><code>    # Verifica el Dominio
+    host -t A general.com
 
-    # Configuración de red: Red interna con IP estática
-    server.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.10&quot;
-
-    # Configuración del proveedor VirtualBox
-    server.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;2048&quot; # 2 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-
-    # Provisión con un script de shell
-    server.vm.provision &quot;shell&quot;, path: &quot;provision.sh&quot;
-  end
-
-  # Máquina 2: Ubuntu Desktop
-  config.vm.define &quot;ubuntu_desktop&quot; do |desktop|
-    desktop.vm.box = &quot;ubuntu24.04-desktop&quot;
-
-    # Configuración de red: Red interna con IP estática
-    desktop.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.15&quot;
-
-    # Configuración del proveedor VirtualBox
-    desktop.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;4096&quot; # 4 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-
-        # Provisión con un script de shell
-    desktop.vm.provision &quot;shell&quot;, path: &quot;ubuntu-Desk.sh&quot;
-  end
-
-  # Máquina 3: Fedora Workstation
-  config.vm.define &quot;fedora_workstation&quot; do |fedora|
-    fedora.vm.box = &quot;fedora41-fedora&quot;
-
-    # Provisión con script
-    fedora.vm.provision &quot;shell&quot;, path: &quot;fedora.sh&quot;
-
-
-    # Configuración de red: Red interna con IP estática
-    fedora.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.25&quot;
-
-    # Configuración del proveedor VirtualBox
-    fedora.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;3072&quot; # 3 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-  end
-
-  # Máquina 4: Windows 11
-  config.vm.define &quot;windows10&quot; do |win|
-    win.vm.box = &quot;StefanScherer/windows_10&quot; # Box de Windows 10
-    win.vm.box_version = &quot;2021.12.09&quot;
-
-    # Configuración de red: Red interna con IP estática
-    win.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.20&quot;
-
-    # Configuración del proveedor VirtualBox
-    win.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;4096&quot; # 4 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-  end
-end
-
+    # Verifica el FQDN
+    host -t A jonathan.general.com
 </code></pre>
+<h2 id="comprobar-kerberos-y-ldap">Comprobar Kerberos y LDAP</h2>
+<pre><code>    # Comprobación del registro SRV para _kerberos. 
+    host -t SRV _kerberos._udp.general.com
+
+    # Comprobación del registro SRV para _ldap
+    host -t SRV _ldap._tcp.general.com
+</code></pre>
+<p><img alt="comprobacion dominio" src="../img/18.%20comprobaciones%20de%20dominio%20y%20kerberos.png" /></p>
 
 
 

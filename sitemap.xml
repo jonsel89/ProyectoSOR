@@ -1,31 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://jonsel89.github.io/</loc>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/ejecucion/</loc>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/ejecutando_script/</loc>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
          <loc>https://jonsel89.github.io/fedora/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/grupos_secundarios/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://jonsel89.github.io/instalar/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/password/</loc>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/preparando_entorno/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://jonsel89.github.io/provision/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://jonsel89.github.io/script_usuarios/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://jonsel89.github.io/ubuntu/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
-         <loc>https://jonsel89.github.io/vagrant/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <loc>https://jonsel89.github.io/usuarios/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://jonsel89.github.io/vagrant_up/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://jonsel89.github.io/vagrantfile/</loc>
-         <lastmod>2025-03-06</lastmod>
+         <lastmod>2025-03-07</lastmod>
     </url>
 </urlset>

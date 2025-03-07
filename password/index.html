@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://jonsel89.github.io/vagrantfile/">
+        <link rel="canonical" href="https://jonsel89.github.io/password/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../ejecucion/">
       
       
-        <link rel="next" href="../provision/">
+        <link rel="next" href="../script_usuarios/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Vagrantfile - Proyecto Samba</title>
+        <title>Políticas de contraseña - Proyecto Samba</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vagrantfile" class="md-skip">
+        <a href="#para-aplicar-las-politicas-de-seguridad-en-las-contrasenas-anadiremos-los-siguientes-comandos-al-principio-de-nuestro-script" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vagrantfile
+              Políticas de contraseña
             
           </span>
         </div>
@@ -190,19 +190,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -217,7 +215,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Preparando entorno
@@ -250,19 +248,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../vagrantfile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -272,7 +261,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -464,17 +452,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -489,7 +479,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Crear usuarios y grupos en samba-ad-dc
@@ -500,10 +490,29 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../password/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Políticas de contraseña
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -513,6 +522,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#para-aplicar-las-politicas-de-seguridad-en-las-contrasenas-anadiremos-los-siguientes-comandos-al-principio-de-nuestro-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para aplicar las políticas de seguridad en las contraseñas añadiremos los siguientes comandos al principio de nuestro script
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -608,8 +644,23 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#para-aplicar-las-politicas-de-seguridad-en-las-contrasenas-anadiremos-los-siguientes-comandos-al-principio-de-nuestro-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para aplicar las políticas de seguridad en las contraseñas añadiremos los siguientes comandos al principio de nuestro script
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -625,77 +676,26 @@
 
 
 
-<h1 id="vagrantfile">VagrantFile</h1>
-<p>Para la automatización de las MV utilizaremos la siguiente configuración en el vagrant file:</p>
-<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
-  # Máquina 1: Ubuntu Server
-  config.vm.define &quot;server-ubuntu&quot; do |server|
-    server.vm.box = &quot;ubuntu/jammy64&quot;
+  <h1>Políticas de contraseña</h1>
 
-    # Configuración de red: Red interna con IP estática
-    server.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.10&quot;
+<h3 id="para-aplicar-las-politicas-de-seguridad-en-las-contrasenas-anadiremos-los-siguientes-comandos-al-principio-de-nuestro-script">Para aplicar las políticas de seguridad en las contraseñas añadiremos los siguientes comandos al principio de nuestro script</h3>
+<pre><code>#!/bin/bash
 
-    # Configuración del proveedor VirtualBox
-    server.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;2048&quot; # 2 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
+echo &quot;🔒 Aplicando política de contraseñas: caducidad cada 30 días, longitud mínima de 8 caracteres y verificación de complejidad...&quot;
 
-    # Provisión con un script de shell
-    server.vm.provision &quot;shell&quot;, path: &quot;provision.sh&quot;
-  end
+# Expiración de la contraseña cada 30 días
+samba-tool domain passwordsettings set --max-pwd-age=30
 
-  # Máquina 2: Ubuntu Desktop
-  config.vm.define &quot;ubuntu_desktop&quot; do |desktop|
-    desktop.vm.box = &quot;ubuntu24.04-desktop&quot;
+# Activar la complejidad de contraseña (requiere mayúsculas, minúsculas y números)
+samba-tool domain passwordsettings set --complexity=on
 
-    # Configuración de red: Red interna con IP estática
-    desktop.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.15&quot;
+# Establecer una longitud mínima de 8 caracteres
+samba-tool domain passwordsettings set --min-pwd-length=8
 
-    # Configuración del proveedor VirtualBox
-    desktop.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;4096&quot; # 4 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
+# Evitar que los usuarios reutilicen sus últimas 5 contraseñas
+samba-tool domain passwordsettings set --history-length=5
 
-        # Provisión con un script de shell
-    desktop.vm.provision &quot;shell&quot;, path: &quot;ubuntu-Desk.sh&quot;
-  end
-
-  # Máquina 3: Fedora Workstation
-  config.vm.define &quot;fedora_workstation&quot; do |fedora|
-    fedora.vm.box = &quot;fedora41-fedora&quot;
-
-    # Provisión con script
-    fedora.vm.provision &quot;shell&quot;, path: &quot;fedora.sh&quot;
-
-
-    # Configuración de red: Red interna con IP estática
-    fedora.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.25&quot;
-
-    # Configuración del proveedor VirtualBox
-    fedora.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;3072&quot; # 3 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-  end
-
-  # Máquina 4: Windows 11
-  config.vm.define &quot;windows10&quot; do |win|
-    win.vm.box = &quot;StefanScherer/windows_10&quot; # Box de Windows 10
-    win.vm.box_version = &quot;2021.12.09&quot;
-
-    # Configuración de red: Red interna con IP estática
-    win.vm.network &quot;private_network&quot;, ip: &quot;192.168.100.20&quot;
-
-    # Configuración del proveedor VirtualBox
-    win.vm.provider &quot;virtualbox&quot; do |vb|
-      vb.memory = &quot;4096&quot; # 4 GB de RAM
-      vb.cpus = 2        # 2 CPUs
-    end
-  end
-end
-
+echo &quot;✅ Políticas de contraseña aplicadas correctamente.&quot;
 </code></pre>
 
 
